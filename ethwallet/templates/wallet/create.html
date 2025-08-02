@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <p class="text-warnin text-mute fw-bold">Your Account Balance:{{balance}} ETH</p>
+                </div>
+                <div>
+                    <a href="{% url 'send' %}" class="btn btn-warning ">Send ETH</a>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white border-bottom-0 text-center pt-4">
+                        <h2 class="mb-0">Your Wallet Details</h2>
+                    </div>
+                    <div class="card-body">
+                        <!-- Private Key Field -->
+                        <div class="mb-4">
+                            <label class="form-label text-muted">Private Key</label>
+                            <div class="input-group">
+                                <input type="text" 
+                                       class="form-control bg-light" 
+                                       value={{private_key}}
+                                       readonly>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Address Field -->
+                        <div class="mb-4">
+                            <label class="form-label text-muted">Wallet Address</label>
+                            <div class="input-group">
+                                <input type="text" 
+                                       class="form-control bg-light" 
+                                       value={{address}} 
+                                       readonly>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Passphrase Field -->
+                        <div class="mb-4">
+                            <label class="form-label text-muted">Passphrase</label>
+                            <textarea class="form-control bg-light" 
+                                      rows="3" 
+                                      readonly>{{passphrases}}</textarea>
+                        </div>
+
+                        <div class="alert alert-warning mt-4">
+                            <i class="bi bi-exclamation-triangle-fill"></i> 
+                            Never share your private key or passphrase with anyone!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
